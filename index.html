@@ -8,40 +8,39 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <body>
+        <header>
+            <div id="highscores">
+                <a href="/scores.html"> High Scores</a>
+            </div>
+            <div id="timer"></div>
+        </header>
+        <main>
+            <div id="welcome">
+                <h1>Welcome to the Coding Quiz</h1>
+                <button id="startQuiz" class="btn">Start Quiz</button>
+            </div>
+            <div id="quiz" class="hidden">
+                <div id="question">
+                </div>
+
+                <div id="options">
+                </div>
+
+                <div id="message">
+                </div>
+            </div>
+            <div id="result" class="hidden">
+                <div id="summary"></div>
+                <button id="viewScores" class="btn">View All High Scores</button>
+                <input type="text" id="initials" placeholder="Enter Your Initials"/>
+                <button id="saveScore" class="btn">Save Your Score</button>
+
+            </div>
+     
+        </main>
+  
+    <script src="assets/js/questions.js"></script>
 	<script src="assets/js/script.js"></script>
   </body>
 </html>
