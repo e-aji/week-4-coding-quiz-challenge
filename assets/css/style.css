@@ -2,18 +2,30 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: white;
 }
 
 header{
     text-align: left;
     background-color: grey;
-    padding: 10px 0;
+    padding: 10px 0 10px 10px;
+    height: 60px;
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 main{
 
     text-align: center;
     margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 
@@ -24,7 +36,7 @@ main{
     border: none;
     padding-top: 10px 20px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     text-decoration: none;
 
 }
@@ -36,3 +48,46 @@ main{
 }
 
 
+#timer {
+
+    float: right;
+    margin-right: 20px;
+}
+
+
+#question{
+
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#options {
+
+    margin-bottom: 20px;
+}
+
+#message {
+
+    margin-bottom: 20px;
+}
+
+
+#summary {
+
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+#viewScores {
+
+    margin-bottom: 10px;
+}
+
+
+#initials {
+
+    padding: 5px;
+    margin-bottom: 10px;
+
+}

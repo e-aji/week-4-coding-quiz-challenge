@@ -27,6 +27,50 @@ function stopGame() {
     summaryEl.textContent = "Your Score is: " + score;
 }
 
+
+function onSelectAnswer(e) {
+
+    var correctanswer = questions[currentQuestion].answer;
+    
+    var userAnswer = e.target.textContent;
+
+    if (correctanswer === userAnswer) {
+
+        score ++;
+        displayMessage('Correct!')
+    }
+
+    else{
+        displayMessage('Wrong!')
+        secondsLeft -= 10;
+
+    }
+} 
+
+function displayMessage (msg){
+
+    messageEl.textContent = msg;
+
+
+
+}
+
+//Function to display questions 
+
+function displayQuestion () {
+
+    currentQuestion++;
+
+    console.log ('current question is ') + score;
+
+    if (currentQuestion >= questions.length) {
+
+        stopGame();
+
+        return;
+    }
+}
+
 // Function to start game 
 function onStartGame()
 {
