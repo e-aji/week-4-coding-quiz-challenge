@@ -3,6 +3,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: white;
+
 }
 
 header{
@@ -28,25 +29,43 @@ main{
     margin-right: 25%;
 }
 
+#welcome h1 {
+
+    font-size: 30px;
+    margin-bottom: 20px;
+
+}
+
+#welcome p {
+
+    font-size: 20px;
+    margin-bottom: 30px;
+}
 
 .btn{
 
-    background-color: #007bff;
+    background-color: #111827;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;    
     color: white;
-    border: none;
-    padding-top: 10px 20px;
+    padding: .75rem 1.2rem;
     cursor: pointer;
-    border-radius: 10px;
+    flex: 0 0 auto;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
     text-decoration: none;
+    text-align: center;
+    width: auto;
 
 }
 
-.btn:hover {
+#highScores {
+    float: right;
+    margin-left: 10px;
+         
 
-    background-color: blanchedalmond;
-    color: black;
 }
-
 
 #timer {
 
@@ -54,11 +73,34 @@ main{
     margin-right: 20px;
 }
 
+.btn:hover {
+
+    background-color: white;
+    color: #111827;
+    border-color: #111827;
+}
+
+.btn:focus {
+    box-shadow: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .hidden{
+
+    display: none;
+}
+
+  #quiz, #result{
+
+    display: none;
+  }
 
 #question{
 
     font-size: 20px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 #options {
@@ -90,4 +132,14 @@ main{
     padding: 5px;
     margin-bottom: 10px;
 
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    .button-40 {
+      padding: .75rem 1.5rem;
+    }
 }
