@@ -11,6 +11,7 @@ var initialsEl = document.getElementById("initials");
 var highScoresEl = document.getElementById("highScores");
 var viewHighScoresEl = document.getElementById("viewHighScores");
 var listHighScoreEl = document.getElementById("listHighScore");
+var viewScoresEl = document.getElementById("viewScores");
 
 
 var secondsLeft = 0;
@@ -131,7 +132,7 @@ function onSelectAnswer(e) {
 }
 
 // Function to stop game
-  function stopGame() {
+function stopGame() {
   clearInterval(countdownTimer);
 
   timerEl.textContent = "";
@@ -161,28 +162,22 @@ function onSelectAnswer(e) {
   
 }
 
-  clearButton.onclick = clearScores;
+clearButton.onclick = clearScores;
 
-  restartButton.onclick = restart;
+restartButton.onclick = restart;
 
 //Show the page that contains high scores 
-function showHighScoresPage() {
+function showScores() {
 
     initialsEl.setAttribute("style", "display: none");
     saveScoreButton.setAttribute("style", "display: none");
     restartButton.setAttribute("style", "display: none");
     clearButton.setAttribute("style", "display: initial");
 
-//High scores that have been saved in local storage 
-  highScoresEl = JSON.parse(localStorage.getItem("highScores"));
+    //High scores that have been saved in local storage 
+    highScoresEl = JSON.parse(localStorage.getItem("highScores"));
 
-
-
-
-  localStorage.setItem("highScores", JSON.stringify(highScoresEl));
- 
-  showHighScoresPage();
-
+    localStorage.setItem("highScores", JSON.stringify(highScoresEl))  ;
 }
 
 //Clears high scores from local storage 
@@ -193,7 +188,7 @@ function clearScores(){
 
 document.getElementById("clear").onclick = clearScores;
 
-showHighScoresPage();
+showScores();
 
 //Restarts the game 
 function restart() {
@@ -206,3 +201,10 @@ function restart() {
 
   location.reload()
 }
+
+function showHighScoresPage (){
+  window.location.href = "scores.html";
+
+}
+
+viewScoresEl.addEventListener("click", showHighScoresPage);
