@@ -8,6 +8,10 @@ var messageEl = document.getElementById("message");
 var timerEl = document.getElementById("timer");
 var summaryEl = document.getElementById("summary");
 var initialsEl = document.getElementById("initials");
+var highScoresEl = document.getElementById("highScores");
+var viewHighScoresEl = document.getElementById("viewHighScores");
+var listHighScoreEl = document.getElementById("listHighScore");
+
 
 var secondsLeft = 0;
 var score = 0;
@@ -43,6 +47,13 @@ var questions = [
     answer: "console.log",
   },
 ];
+
+
+function init() {
+  highScoresEl = JSON.parse(localStorage.getItem("highScores")) || [];
+}
+
+init()
 
 function displayMessage(msg) {
   messageEl.textContent = msg;
@@ -120,13 +131,78 @@ function onSelectAnswer(e) {
 }
 
 // Function to stop game
-function stopGame() {
+  function stopGame() {
   clearInterval(countdownTimer);
 
   timerEl.textContent = "";
-
   quizEl.style.display = "none";
-  resultEl.style.display = "block";
-
+  resultEl.style.display = "inline";
   summaryEl.textContent = "Your Score is: " + score;
+
+  var saveScoreBtn = document.getElementById("saveScore");
+  var restartBtn = document.getElementById("restart");
+  var clearBtn = document.getElementById("clear");
+
+  saveScoreBtn.addEventListener('click', function () {
+    var initials = initialsEl.value.trim();
+
+    if (initials !== '') {
+      // Save the score
+      var newScore = { initials: initials, score: score };
+      highScoresEl.push(newScore);
+      localStorage.setItem("highScores", JSON.stringify(highScoresEl));
+
+      displayMessage("Your score has been submitted and saved!");
+      initialsEl.value = '';
+    } else {
+      displayMessage("Please enter your initials so your score can be submitted and saved!");
+    }
+  });
+  
+}
+
+  clearButton.onclick = clearScores;
+
+  restartButton.onclick = restart;
+
+//Show the page that contains high scores 
+function showHighScoresPage() {
+
+    initialsEl.setAttribute("style", "display: none");
+    saveScoreButton.setAttribute("style", "display: none");
+    restartButton.setAttribute("style", "display: none");
+    clearButton.setAttribute("style", "display: initial");
+
+//High scores that have been saved in local storage 
+  highScoresEl = JSON.parse(localStorage.getItem("highScores"));
+
+
+
+
+  localStorage.setItem("highScores", JSON.stringify(highScoresEl));
+ 
+  showHighScoresPage();
+
+}
+
+//Clears high scores from local storage 
+function clearScores(){
+
+  localStorage.removeItem("highScores");
+}
+
+document.getElementById("clear").onclick = clearScores;
+
+showHighScoresPage();
+
+//Restarts the game 
+function restart() {
+  clearInterval(countdownTimer);
+  score = 0;
+  currentQuestion = 0;
+  initialsEl = "";
+
+  onStartGame();
+
+  location.reload()
 }
