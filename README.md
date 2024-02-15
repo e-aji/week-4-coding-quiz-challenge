@@ -40,13 +40,13 @@ THEN I can save my initials and my score
 
 * If a question is answered incorrectly, time is subtracted from the clock 
 
-* When all the Questions have been answered and/or the timer has reached 0, the user is then shown their score and asked to enter their initials. 
+* When all the questions have been answered and/or the timer has reached 0, the user is then shown their score and asked to enter their initials. 
 
 * The user then has the option to save their initials and score 
 
-* The user can also be directed to the high scores page to see where they rank 
+* At the end of the quiz, the user is also able to select either 'restart' or 'clear' to restart the game or clear the high scores. 
 
-* Once on the high score page, the user is able to select either 'restart' or 'clear' to restart the game or clear the high score page.
+* The users score is saved as well as their initials in local storage and can also be cleared from local storage if the user selects the clear option
 
 ## Links 
 

@@ -1,5 +1,6 @@
-var startQuizEl = document.getElementById("startQuiz");
+//Set variables 
 
+var startQuizEl = document.getElementById("startQuiz");
 var welcomeEl = document.getElementById("welcome");
 var quizEl = document.getElementById("quiz");
 var resultEl = document.getElementById("result");
@@ -7,14 +8,12 @@ var optionsEl = document.getElementById("options");
 var messageEl = document.getElementById("message");
 var timerEl = document.getElementById("timer");
 var summaryEl = document.getElementById("summary");
-var initials = document.getElementById("initials")
-var highScoresEl = JSON.parse(localStorage.getItem("highScores")) || [];
-var viewHighScoresEl = document.getElementById("viewHighScores");
-var highScoresListEl = document.getElementById("highScoresList");
+var initialsEl = document.getElementById("initials");
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 var viewScoresEl = document.getElementById("viewScores");
 var saveScoreEl = document.getElementById("saveScore");
 var restartEl = document.getElementById("restart");
-var clearEl = document.getElementById("clear");
+var clearButtonEl = document.getElementById("clearButton");
 
 var secondsLeft = 0;
 var score = 0;
@@ -51,25 +50,17 @@ var questions = [
   },
 ];
 
-function init() {
-  // Retrieve high scores from localStorage or initialize as an empty array
-  highScoresEl = JSON.parse(localStorage.getItem("highScores")) || [];
-}
-
-init();
-
 function displayMessage(msg) {
   messageEl.textContent = msg;
 }
-
-// Event listener for when the user clicks "Start Quiz" button
-startQuizEl.addEventListener("click", onStartGame);
 
 // Function to start game
 function onStartGame() {
   startQuizEl.style.display = "none";
   welcomeEl.style.display = "none";
   quizEl.style.display = "block";
+  resultEl.style.display = "none";
+
 
   displayQuestion();
   setTimer();
@@ -111,6 +102,8 @@ function displayQuestion() {
   });
 }
 
+// Function to handles user's answer selection, update score, and progresses to the next question or end game
+
 function onSelectAnswer(e) {
   var correctAnswer = questions[currentQuestion].answer;
   var userAnswer = e.target.textContent;
@@ -125,15 +118,13 @@ function onSelectAnswer(e) {
       secondsLeft = 0;
     }
   }
-
   currentQuestion++;
-  if (currentQuestion < questions.length) {
-    displayQuestion();
-  } else {
-    stopGame();
+    if (currentQuestion < questions.length) {
+      displayQuestion();
+    } else {
+      stopGame();
   }
 }
-
 // Function to stop game
 function stopGame() {
   clearInterval(countdownTimer);
@@ -142,47 +133,46 @@ function stopGame() {
   quizEl.style.display = "none";
   resultEl.style.display = "inline";
   summaryEl.textContent = "Your Score is: " + score;
-
 }
-// Show high scores page after initials are entered
+// // Save high scores in local storafe after initials are entered
+function showHighScoresPage() {
 
-function showScores() {
+  var initials = initialsEl.value.trim();
 
-  var initials = initialsEl.value.trim().toUpperCase(); // Get initials entered by the user
+  if (initials !== ""){
+    var newScore = {
+      initials: initials,
+      score: score,
+    }; 
 
-  // Check if initials are entered
-  if (initialsEl !== '') {
-    // Redirect to the high scores page
-    window.location.href = "scores.html";
+    highScores.push(newScore);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 
-    // Display high scores saved in local storage
-    highScoresEl = JSON.parse(localStorage.getItem("highScores"));
-
-    localStorage.setItem("highScores", JSON.stringify(highScoresEl));
-  } else {
-    // Inform the user to enter initials
-    displayMessage("Please enter your initials to view high scores.");
-  }
-}
-
-// Clear high scores from local storage
+  window.location.href = "scores.html";
+  }}
+// Function to clear high scores from local storage
 function clearScores() {
   window.localStorage.removeItem("highScores");
   window.location.reload();
 }
-
-document.getElementById("clear").onclick = clearScores;
-
-// Redirect to high scores page
-function showHighScoresPage() {
-  window.location.href = "scores.html";
-}
-
 // Add event listeners
-viewScoresEl.addEventListener("click", showHighScoresPage);
 
-clearEl.addEventListener("click", clearScores);
+// Event listener for when the user clicks "Start Quiz" button
+startQuizEl.addEventListener("click", onStartGame);
 
-restartEl.addEventListener("click", onStartGame);
+// Clear high scores from local storage when button clicked
+
+clearButtonEl.addEventListener("click", clearScores);
+
+restartEl.addEventListener("click", function() {
+  clearInterval(countdownTimer); // Clear any existing timer
+  secondsLeft = 0; // Reset seconds left
+  score = 0; // Reset score
+  currentQuestion = 0; // Reset current question
+  onStartGame(); // Start the game again
+});
+
+// Save score and redirect to local storage and redirect to high scores page
 
 saveScoreEl.addEventListener("click", showHighScoresPage);
+
