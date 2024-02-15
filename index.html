@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
+        <!-- Link to Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+            <!-- Header section -->
+
     <header>
         <div id="highScores">
             <a href="scores.html">View High Scores</a>
@@ -20,17 +24,24 @@
         <div id="timer">Time remaining: <span id="time">0</span></div>
     </header>
     <main>
+                <!-- Welcome section -->
+
         <div id="welcome">
             <h1>Welcome to the Coding Quiz</h1>
             <p> You'll put your programming skills to the test and
                 tackle a series of challenges designed to sharpen your coding prowess!</p>
             <button id="startQuiz" class="btn">Start Quiz</button>
         </div>
+                <!-- Quiz section -->
+
         <div id="quiz" class="hidden">
             <div id="question" class="question"></div>
             <div id="options" class = "options"></div>
             <div id="message" class= "message"></div>
         </div>
+
+                <!-- Result section -->
+
         <div id="result" class="hidden">
             <div id="summary"></div>
             <input type="text" id="initials" placeholder="Please Enter Your Initials" />
@@ -41,6 +52,7 @@
         </div>
 
     </main>
+     <!-- JavaScript file for functionality -->
 
     <script src="assets/js/script.js"></script>
 

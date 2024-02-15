@@ -1,3 +1,9 @@
+
+/* CSS file for coding quiz 
+
+*/
+
+/* Set default font, margin, padding and background colour for body */
 body{
     font-family: "Montserrat", sans-serif;
     margin: 0;
@@ -6,6 +12,7 @@ body{
 
 }
 
+/* Header styling */
 header{
     text-align: left;
     background-color: white;
@@ -16,6 +23,8 @@ header{
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+/* Styling for main content */
 
 main{
 
@@ -29,6 +38,8 @@ main{
     margin-right: 25%;
 }
 
+/* Styling for the welcome section */
+
 #welcome h1 {
 
     font-size: 30px;
@@ -37,11 +48,15 @@ main{
 
 }
 
+/* Styling for the welcome paragraph */
+
 #welcome p {
 
     font-size: 20px;
     margin-bottom: 30px;
 }
+
+/* Styling for all buttons */
 
 .btn{
 
@@ -62,29 +77,6 @@ main{
 
 }
 
-#highScores {
-    float: right;
-    margin-left: 10px;
-
-}    
-
-#highScores a {
-
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-
-}    
-    
-
-#timer {
-
-    float: right;
-    margin-right: 20px;
-    font-weight: 600;
-    text-decoration: underline;
-
-}
 
 .btn:hover {
 
@@ -100,15 +92,48 @@ main{
     outline-offset: 2px;
   }
 
+/* Styling for the highscores section */
+
+#highScores {
+    float: right;
+    margin-left: 10px;
+
+}    
+/* Styling for the highscores link */
+
+#highScores a {
+
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+
+}    
+ /* Styling for timer */
+   
+#timer {
+
+    float: right;
+    margin-right: 20px;
+    font-weight: 600;
+    text-decoration: underline;
+
+}
+
+/* Hide elements with the 'hidden' class */
+
   .hidden{
 
     display: none;
 }
 
+/* Hide quiz and result sections by default */
+
   #quiz, #result{
 
     display: none;
   }
+
+   /* Styling for question */
 
 #question{
 
@@ -119,12 +144,16 @@ main{
     
 }
 
+ /* Styling for options */
+
 #options {
 
     margin: 20px;
     padding: 30px;
 
 }
+
+ /* Styling for message */
 
 #message {
 
@@ -135,22 +164,22 @@ main{
     font-size: 15px;
 }
 
+ /* Styling for summary */
 
-.no-bullets {
-    list-style: none;
-  }
-  
 #summary {
 
     font-size: 20px;
     margin-bottom: 20px;
 }
 
+ /* Styling for viewScores */
 
 #viewScores {
 
     margin-bottom: 10px;
 }
+
+ /* Styling for initials section */
 
 #initials {
 
@@ -162,10 +191,14 @@ main{
 
 }
 
+ /* Styling for saveScore, clear and restart buttons (posiitoning) */
+
 #saveScore, #clear, #restart {
 
     margin: 20px;
 }
+
+ /* Styling for highScoresList section */
 
 .highScoresList {
 
@@ -173,6 +206,7 @@ main{
 
 }
 
+/* Media query for button size on screens larger than 768px */
 
 @media (min-width: 768px) {
     .button-40 {
