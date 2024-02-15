@@ -7,7 +7,7 @@ var optionsEl = document.getElementById("options");
 var messageEl = document.getElementById("message");
 var timerEl = document.getElementById("timer");
 var summaryEl = document.getElementById("summary");
-var initialsEl = document.getElementById("initials");
+var initials = document.getElementById("initials")
 var highScoresEl = JSON.parse(localStorage.getItem("highScores")) || [];
 var viewHighScoresEl = document.getElementById("viewHighScores");
 var highScoresListEl = document.getElementById("highScoresList");
@@ -25,28 +25,28 @@ var countdownTimer;
 var questions = [
   {
     title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
+    options: ["strings", "booleans", "alerts", "numbers"],
     answer: "alerts",
   },
   {
     title: "The condition in an if/else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    options: ["quotes", "curly brackets", "parentheses", "square brackets"],
     answer: "parentheses",
   },
   {
     title: "Arrays in JavaScript can be used to store ____",
-    choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+    options: ["numbers and strings", "other arrays", "booleans", "all of the above"],
     answer: "all of the above",
   },
   {
     title: "String values must be enclosed within ____ when being assigned to a variable",
-    choices: ["commas", "curly brackets", "quotes", "parentheses"],
+    options: ["commas", "curly brackets", "quotes", "parentheses"],
     answer: "quotes",
   },
   {
     title:
       "A very useful tool used during development and debugging for printing content to the debugger is:",
-    choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
+    options: ["JavaScript", "terminal / bash", "for loops", "console.log"],
     answer: "console.log",
   },
 ];
@@ -94,9 +94,10 @@ function setTimer() {
 }
 
 // Function to display questions
+
 function displayQuestion() {
   var question = questions[currentQuestion];
-  var options = question.choices; // Fix: Use 'choices' instead of 'options'
+  var options = question.options; 
 
   optionsEl.innerHTML = ""; // Clear previous options
 
@@ -144,12 +145,13 @@ function stopGame() {
 
 }
 // Show high scores page after initials are entered
-var initials = initialsEl.value.trim(); // Get initials entered by the user
 
 function showScores() {
 
+  var initials = initialsEl.value.trim().toUpperCase(); // Get initials entered by the user
+
   // Check if initials are entered
-  if (initialsEl !== "") {
+  if (initialsEl !== '') {
     // Redirect to the high scores page
     window.location.href = "scores.html";
 
@@ -165,16 +167,11 @@ function showScores() {
 
 // Clear high scores from local storage
 function clearScores() {
-  localStorage.removeItem("highScoresList");
-
+  window.localStorage.removeItem("highScores");
+  window.location.reload();
+}
 
 document.getElementById("clear").onclick = clearScores;
-}
-// Restart the game
-function restart() {
-
-  onStartGame();
-}
 
 // Redirect to high scores page
 function showHighScoresPage() {
@@ -186,6 +183,6 @@ viewScoresEl.addEventListener("click", showHighScoresPage);
 
 clearEl.addEventListener("click", clearScores);
 
-restartEl.addEventListener("click", restart);
+restartEl.addEventListener("click", onStartGame);
 
-saveScoreEl.addEventListener("click", showScores);
+saveScoreEl.addEventListener("click", showHighScoresPage);

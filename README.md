@@ -28,6 +28,12 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
+## Languages Used 
+
+* HTML
+* CSS
+* JavaScript
+
 ## Usage 
 
 * When the start button is clicked, the user can bagin answering questions 
