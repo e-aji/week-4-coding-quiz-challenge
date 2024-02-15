@@ -7,6 +7,9 @@
   <title>Coding Quiz</title>
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -14,13 +17,15 @@
   <main>
     <div id="welcome">
       <h1> High Score List</h1>
-      <div id="listHighScore"></div>
-      <button id="clear" type="button" onClick="clearScores()"> Clear Scores</button>
-      <button id="restart" type="button" onClick="restart()"> Restart Quiz </button>
+      <div id="highScoresList">
+      <button id="clear" class="btn" onClick="clearScores()"> Clear Scores</button>
+      <button id="restart" class="btn" onClick="restart()"> Restart Quiz </button>
+      </div>
     </div>
   </main>
 
   <script src="./assets/js/scores.js"></script>
+  <script src=".assets/js/script.js"></script>
 
 </body>
 

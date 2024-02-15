@@ -1,5 +1,5 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -33,6 +33,7 @@ main{
 
     font-size: 30px;
     margin-bottom: 20px;
+    color: #702963;
 
 }
 
@@ -44,10 +45,11 @@ main{
 
 .btn{
 
-    background-color: #111827;
+    background-color: #702963	;
     border: 1px solid transparent;
     border-radius: .75rem;
     box-sizing: border-box;    
+    border-width: 0.18rem;
     color: white;
     padding: .75rem 1.2rem;
     cursor: pointer;
@@ -76,8 +78,9 @@ main{
 .btn:hover {
 
     background-color: white;
-    color: #111827;
-    border-color: #111827;
+    color: #702963	;
+    border-color: #702963;
+    cursor: pointer;
 }
 
 .btn:focus {
@@ -101,11 +104,14 @@ main{
     font-size: 20px;
     margin-bottom: 20px;
     text-align: center;
+    font-weight: 600;
+    
 }
 
 #options {
 
-    margin-bottom: 20px;
+    margin: 20px;
+
 }
 
 #message {
@@ -126,16 +132,25 @@ main{
     margin-bottom: 10px;
 }
 
+#saveScore{
 
-#initials {
-
-    padding: 5px;
-    margin-bottom: 10px;
 
 }
 
 
+#initials {
 
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #702963;
+    color: #702963;
+
+}
+
+#clear, #restart {
+
+    margin: 20px;
+}
 
 
 @media (min-width: 768px) {
